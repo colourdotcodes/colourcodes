@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>colour.codes</title>
+<meta name="description" content="Mine like it's 2009. Proof of work on Robinhood Chain, checked by the contract itself.">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/img/hero/room-1920.webp" as="image" type="image/webp">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-serif-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/hero.css">
+<link rel="stylesheet" href="/css/os.css">
+<script src="/config.js"></script>
+</head>
+<body class="is-room">
+  <header class="top" id="top">
+    <a class="brand" href="/" aria-label="colour.codes home">
+      <img class="brand-mark" src="/favicon.svg" alt="" aria-hidden="true">
+      <span class="brand-word">colour<b>.codes</b></span>
+    </a>
+    <div class="ca" id="ca">
+      <span class="ca-label">CA</span>
+      <span class="ca-value" id="ca-value"></span>
+      <button class="ca-copy" id="ca-copy" type="button" aria-label="Copy contract address">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-1a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1"/></svg>
+      </button>
+    </div>
+    <nav class="top-right">
+      <a class="icon-btn" id="link-x" href="#" aria-label="colour.codes on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg>
+      </a>
+      <a class="pill" id="link-buy" href="#">Buy</a>
+    </nav>
+  </header>
+
+  <main id="room" aria-label="A coder at a 2009 computer">
+    <div class="stage" id="stage">
+      <img class="still" id="still" alt="" decoding="async"
+           src="/img/hero/room-1920.webp"
+           srcset="/img/hero/room-1280.webp 1280w, /img/hero/room-1920.webp 1920w, /img/hero/room-2752.webp 2752w"
+           sizes="(max-aspect-ratio: 16/9) 180vh, 100vw">
+    </div>
+    <div class="room-shade" id="room-shade"></div>
+    <div class="grain" aria-hidden="true"></div>
+  </main>
+
+  <div id="screen-base" aria-hidden="true"></div>
+  <div id="os-root" data-mode="crt"></div>
+  <div id="screen-fx" aria-hidden="true"></div>
+
+  <section class="hero-copy" id="hero-copy">
+    <p class="kicker">Every hash is a colour. Mined on Robinhood Chain.</p>
+    <div class="actions">
+      <button class="pill pill-lg" id="enter" type="button">Enter the computer</button>
+      <button class="text-link" id="open-guide" type="button">How to mine</button>
+      <button class="text-link" id="open-paper" type="button">Whitepaper <span aria-hidden="true">↗</span></button>
+    </div>
+  </section>
+
+  <aside class="hero-stats" id="hero-stats" aria-live="polite">
+    <div><span>Block</span><strong id="st-height">&mdash;</strong></div>
+    <div><span>Difficulty</span><strong id="st-diff">&mdash;</strong></div>
+    <div><span>Next halving</span><strong id="st-halving">&mdash;</strong></div>
+    <p id="st-note">Reading the chain…</p>
+  </aside>
+
+  <p class="hint" id="hint"><span class="hint-mouse"></span><span id="hint-text">Scroll or click the screen</span></p>
+
+  <button class="back" id="back" type="button" aria-label="Back to the room">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>
+    <span>Room</span>
+  </button>
+
+  <div class="guide" id="guide" role="dialog" aria-modal="true" aria-labelledby="guide-title" hidden>
+    <div class="guide-scrim" data-close></div>
+    <article class="guide-panel">
+      <header class="guide-head">
+        <p class="guide-kicker">Guide</p>
+        <h2 id="guide-title">How to mine</h2>
+        <button class="guide-x" type="button" data-close aria-label="Close the guide">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+        </button>
+      </header>
+      <p class="guide-lede">Your computer guesses hashes. When one is good enough, the contract checks it and pays a block. You never deposit anything; holding the token is your ticket.</p>
+      <ol class="guide-steps">
+        <li><span class="n">1</span><div><b>Hold <span data-ticker>$CCODE</span></b><p>Buy at least the minimum on Robinhood Chain and keep it in your wallet. <span data-minhold></span></p></div></li>
+        <li><span class="n">2</span><div><b>Open the Miner</b><p>Enter the computer, open <em>colour.codes Miner</em> and connect your wallet. It switches to Robinhood Chain (id 4663) for you.</p></div></li>
+        <li><span class="n">3</span><div><b>Press Generate Coins</b><p>Your browser starts hashing. Leave the tab open; every good share counts toward the pool's next block.</p></div></li>
+        <li><span class="n">4</span><div><b>Claim once a day</b><p>Open <em>colour.codes Pool</em> and press Claim. Rewards go straight to your wallet.</p></div></li>
+      </ol>
+      <section class="guide-agent">
+        <b>Or let your AI agent mine</b>
+        <p>Give Claude, ChatGPT or any coding agent this one line. No private key is needed.</p>
+        <div class="guide-line"><code id="guide-line"></code><button type="button" id="guide-copy">Copy</button></div>
+      </section>
+      <footer class="guide-foot">
+        <button class="pill" type="button" id="guide-miner">Open the Miner</button>
+        <span class="guide-status" id="guide-status">Mining opens at launch.</span>
+      </footer>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="/js/abi.js" defer></script>
+  <script src="/js/mining/client.js" defer></script>
+  <script type="module" src="/js/os/main.js"></script>
+  <script type="module" src="/js/hero/main.js"></script>
+</body>
+</html>

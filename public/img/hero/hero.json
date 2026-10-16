@@ -1,0 +1,47 @@
+{
+  "still": {
+    "w": 2752,
+    "h": 1536,
+    "widths": [
+      1280,
+      1920,
+      2752
+    ]
+  },
+  "screen": [
+    [
+      1358,
+      634
+    ],
+    [
+      1657,
+      634
+    ],
+    [
+      1651,
+      914
+    ],
+    [
+      1354,
+      910
+    ]
+  ],
+  "hand": {
+    "src": "/img/hero/hand-sheet.webp",
+    "frames": 0,
+    "fw": 600,
+    "fh": 305,
+    "x": 999.17,
+    "y": 934.94,
+    "scale": 1.42739
+  },
+  "idle": {
+    "src": [
+      {
+        "url": "/video/room-idle.mp4",
+        "phone": "/video/room-idle-720.mp4",
+        "type": "video/mp4"
+      }
+    ]
+  }
+}
