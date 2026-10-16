@@ -1,0 +1,14 @@
+{
+  "name": "colour-codes",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node --env-file-if-exists=.env server.mjs",
+    "mine": "node miner/colourcode-miner.mjs",
+    "build:kernel": "node miner/build-kernel.mjs",
+    "test:e2e": "node tools/e2e-mining.mjs"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0"
+  }
+}

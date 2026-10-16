@@ -1,0 +1,20 @@
+{
+  "chainId": 31337,
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "genesisChallenge": "0xbcf6b7148b471e9c723fc5895a028d37c70e5e24bad7c20e6cb0b6005c6f844a",
+  "genesisMessage": "colour.codes local genesis",
+  "halvingInterval": 12960,
+  "holdersNote": "anvil accounts #0..#7 hold 1,000,000 mock tokens; #8 and #9 hold none",
+  "initialTarget": "9649340769776349618630915417390658987772498722136713669954798667326094",
+  "initialTargetHex": "0x00000165e9f80f292119e465fef0c4b20482d4ea60eab4cd8af11894daa6628e",
+  "minHold": "1000000000000000000000",
+  "minSpacing": 10,
+  "miner": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+  "operator": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  "operatorNote": "anvil default account #1 (public test key, local only)",
+  "pool": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+  "reserve": "10500000000000000000000000",
+  "startBlock": 0,
+  "targetSpacing": 60,
+  "token": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+}

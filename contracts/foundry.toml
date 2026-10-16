@@ -1,0 +1,29 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 10000
+bytecode_hash = "none"
+# Lets script/MineLocal.s.sol search nonces in the script VM (local only).
+gas_limit = 9223372036854775807
+# Local.s.sol writes the local deployment addresses here.
+fs_permissions = [{ access = "read-write", path = "./deploy.local.json" }]
+
+[fuzz]
+runs = 2048
+
+[rpc_endpoints]
+# Local anvil fork of Robinhood Chain (see README). Never a mainnet endpoint for broadcasting.
+robinhood_fork = "http://127.0.0.1:8547"
+
+[fmt]
+line_length = 110
+
+[lint]
+# Lint the production contracts only; tests and local scripts use deliberate casts / timestamps.
+ignore = ["test/**/*.sol", "script/**/*.sol"]
