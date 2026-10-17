@@ -12,7 +12,7 @@ export default {
   status: true,
   mount(win, os) {
     const C = cfg(), ca = C.ca || '', live = isAddress(ca);
-    const caField = field(live ? ca : C.caText || 'CA SOON', { readonly: true, mono: true, label: 'Contract address' });
+    const caField = field(live ? ca : 'CA ' + (C.caText || 'SOON'), { readonly: true, mono: true, label: 'Contract address' });
     const copy = button('Copy', { icon: 'copy', small: true, onClick: async () => {
       if (!live) { os.notify({ title: 'Contract address', text: 'The contract address is published at launch.', icon: 'info', timeout: 5000 }); return; }
       if (await copyText(ca)) { copy.querySelector('span').textContent = 'Copied'; setTimeout(() => (copy.querySelector('span').textContent = 'Copy'), 1400); }
@@ -24,7 +24,7 @@ export default {
       ['DEX Screener', L.dexscreener, 'globe'],
       ['Blockscout', live ? `${exp}/token/${ca}` : '', 'chain'],
       ['X (Twitter)', L.x, 'globe'],
-      ['Telegram', L.telegram, 'globe'],
+      ['GitHub', L.github, 'file'],
       ['How to Mine', '#howto', 'howto'],
     ].map(([label, url, ic]) => button(label, { icon: ic, onClick: () => {
       if (url === '#howto') { os.open('howto'); return; }

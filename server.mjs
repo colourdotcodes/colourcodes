@@ -50,7 +50,12 @@ const server = http.createServer(async (req, res) => {
       'cache-control': 'no-cache',
     }).end(body);
   } catch {
-    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }).end('Not found');
+    // clean URLs: /verify → verify.html
+    const pretty = !extname(path) ? await readFile(join(ROOT, path.replace(/\/$/, '') + '.html')).catch(() => null) : null;
+    if (pretty) { res.writeHead(200, { 'content-type': TYPES['.html'], 'cache-control': 'no-cache' }).end(pretty); return; }
+    const page = await readFile(join(ROOT, '404.html')).catch(() => null);
+    if (page) res.writeHead(404, { 'content-type': TYPES['.html'], 'cache-control': 'no-cache' }).end(page);
+    else res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }).end('Not found');
   }
 });
 

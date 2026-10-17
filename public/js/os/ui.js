@@ -168,6 +168,7 @@ export function until(ts) {
 export const toMs = (ts) => { let ms = typeof ts === 'number' ? ts : Date.parse(ts); if (ms < 1e12) ms *= 1000; return ms; };
 
 export const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-export const origin = () => location.origin;
+// the public site, so copied agent lines always point at colour.codes (local dev servers included)
+export const origin = () => (window.COLOURCODE?.domain ? `https://${window.COLOURCODE.domain}` : location.origin);
 export const cfg = () => window.COLOURCODE || {};
 export const ticker = () => cfg().ticker || 'CCODE';

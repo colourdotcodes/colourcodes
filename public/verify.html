@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Verify · colour.codes</title>
+<meta name="description" content="Every claim colour.codes makes, with the on-chain proof: verified contracts, the funded reserve, mined blocks, payouts and claims on Robinhood Chain.">
+<meta property="og:title" content="Verify · colour.codes">
+<meta property="og:description" content="Verified contracts, funded reserve, mined blocks, payouts and claims on Robinhood Chain. Check every line yourself.">
+<meta property="og:image" content="https://colour.codes/og.png?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0a09">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: 'Archivo'; src: url('/fonts/archivo-latin.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: 'Cousine'; src: url('/fonts/cousine-400.woff2') format('woff2'); font-display: swap; }
+:root { --bg: #0b0a09; --panel: #15130f; --ink: #f3eee4; --mute: rgba(243,238,228,.58); --line: rgba(243,238,228,.12); --ok: #7bdc8e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Archivo', system-ui, sans-serif; }
+main { max-width: 920px; margin: 0 auto; padding: 48px 16px 80px; }
+a { color: inherit; }
+.top { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; font-size: 20px; letter-spacing: -.02em; }
+.top img { width: 30px; height: 30px; }
+.top em { font-style: normal; color: var(--mute); margin-left: -12px; }
+h1 { font-size: clamp(34px, 7vw, 56px); letter-spacing: -.035em; line-height: 1; margin: 48px 0 14px; font-weight: 600; }
+.lede { color: var(--mute); font-size: 17px; line-height: 1.55; max-width: 640px; margin: 0 0 36px; }
+h2 { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin: 40px 0 12px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline; padding: 16px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+.row b { font-size: 16px; font-weight: 600; }
+.row p { grid-column: 1 / -1; margin: 0; color: var(--mute); font-size: 14px; line-height: 1.5; }
+.row code { grid-column: 1 / -1; font-family: 'Cousine', monospace; font-size: 13px; color: var(--ink); word-break: break-all; }
+.row a.go { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 8px; vertical-align: 2px; }
+.live { font-family: 'Cousine', monospace; font-size: 14px; color: var(--mute); }
+table { width: 100%; border-collapse: collapse; font-family: 'Cousine', monospace; font-size: 13px; }
+td, th { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--mute); font-weight: 400; }
+td a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 6px 10px; }
+footer { margin-top: 48px; color: var(--mute); font-size: 13px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<main>
+  <a class="top" href="/"><img src="/favicon.svg" alt="">colour<em>.codes</em></a>
+  <h1>Verify it yourself.</h1>
+  <p class="lede">Every claim colour.codes makes, next to the on-chain proof on Robinhood Chain (chain id 4663). Nothing here asks for trust: open each link.</p>
+
+  <p class="live" id="live"><span class="dot"></span>Reading the chain…</p>
+
+  <h2>Contracts</h2>
+  <div class="row"><b>$CCODE token, launched on Pons</b><a class="go" href="https://robinhoodchain.blockscout.com/token/0xcf595c67A50c423cD663E90f47922c4651f91cd6" target="_blank" rel="noopener">Blockscout ↗</a>
+    <code>0xcf595c67A50c423cD663E90f47922c4651f91cd6</code></div>
+  <div class="row"><b>ColourcodeMiner, verified on Sourcify</b><a class="go" href="https://repo.sourcify.dev/4663/0x646721dA9c7E32d401a3FF8FA802edC20E0c0317" target="_blank" rel="noopener">Source ↗</a>
+    <code>0x646721dA9c7E32d401a3FF8FA802edC20E0c0317</code>
+    <p>No withdraw, no pause, no owner, no setters. The deployer's only power was one start() call, already used. A block is valid only when keccak256(challenge, beneficiary, nonce) is at or below the target.</p></div>
+  <div class="row"><b>ColourcodePool, verified on Sourcify</b><a class="go" href="https://repo.sourcify.dev/4663/0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948" target="_blank" rel="noopener">Source ↗</a>
+    <code>0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948</code>
+    <p>Posts one payout root per epoch, never more than it holds; each miner claims with a merkle proof. No owner withdraw, no sweep, no setters.</p></div>
+  <div class="row"><b>All code is public, MIT</b><a class="go" href="https://github.com/colourdotcodes/colourcodes" target="_blank" rel="noopener">GitHub ↗</a>
+    <p>Contracts with tests, the pool server, the CLI miner and this site. The miner served at colour.codes/api/miner.mjs has the same sha256 as the file on GitHub.</p></div>
+
+  <h2>The mining cycle, on-chain</h2>
+  <div class="row"><b>1 · Contracts deployed</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0x1269ffc88a8caa12f42c9d03c6803a4bc4bc3de89a8524bc4efd355237d83a3e" target="_blank" rel="noopener">Tx ↗</a>
+    <code>miner 0x1269ffc8…3a3e · pool 0x434b6050…844f</code></div>
+  <div class="row"><b>2 · Reserve funded: 2,928,672 CCODE into the miner</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0x4d707f1539e3ae2440c5057eb39b621321cc43976f0cbc0df192818abcf30cfb" target="_blank" rel="noopener">Tx ↗</a>
+    <p>The whole dev balance went in. It can only leave as block rewards, halving every 12,960 blocks.</p></div>
+  <div class="row"><b>3 · start() called, mining open</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0x40b1f9263c395b2beaec759bd09d5c9351ba25f170b008c83800f5b78ac22404" target="_blank" rel="noopener">Tx ↗</a></div>
+  <div class="row"><b>4 · Block #1 mined through the pool</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0x9190fda882801188ab0ee64ffbc0d63b30acf7d625194751175e4b8a0cedb17d" target="_blank" rel="noopener">Tx ↗</a>
+    <p>Digest 0x00000000 37b24e… : as a colour, #000000.</p></div>
+  <div class="row"><b>5 · First daily payout posted (epoch 1)</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0xe2b1bc7bf634cc7ae04cb83c202b647a4daa182d33b6dc1f56532de2dc1bfa7c" target="_blank" rel="noopener">Tx ↗</a>
+    <p>1,355.87 CCODE to 4 miners at 00:00 UTC, 17 Oct 2026.</p></div>
+  <div class="row"><b>6 · A claim paid out from the pool</b><a class="go" href="https://robinhoodchain.blockscout.com/tx/0xba7b65554f92c4c74b8c90c387ee407895c9866c0d4d610706967c8383d56b3c" target="_blank" rel="noopener">Tx ↗</a>
+    <p>Epoch 1, 239.16 CCODE, with a merkle proof.</p></div>
+
+  <h2>Recent blocks, live</h2>
+  <div class="wrap"><table><thead><tr><th>Block</th><th>Colour</th><th>Reward</th><th>Tx</th></tr></thead><tbody id="blocks"><tr><td colspan="4">Loading…</td></tr></tbody></table></div>
+
+  <footer>Live data: <a href="/api/chain">colour.codes/api/chain</a> · <a href="/api/pool/stats">/api/pool/stats</a> · <a href="/api/agent/log">/api/agent/log</a><br>
+  Not financial advice. Crypto is volatile and a signed transaction cannot be undone. DYOR.</footer>
+</main>
+<script>
+(async () => {
+  try {
+    const [c, s] = await Promise.all([fetch('/api/chain').then(r => r.json()), fetch('/api/pool/stats').then(r => r.json())]);
+    const n = x => Number(x).toLocaleString('en-US', { maximumFractionDigits: 2 });
+    document.getElementById('live').innerHTML = `<span class="dot"></span>Live: block ${n(c.height)} · reserve ${n(Number(c.reserve) / 1e18)} CCODE · ${n(s.miners10m)} miners in the last 10 min · next halving at block ${n(c.nextHalvingAt)}`;
+    const ex = 'https://robinhoodchain.blockscout.com/tx/';
+    document.getElementById('blocks').innerHTML = (c.blocks || []).slice(0, 12).map(b => `<tr><td>#${b.height}</td><td><span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px;background:#${b.digest.slice(2, 8)};box-shadow:0 0 0 1px rgba(243,238,228,.25)"></span>#${b.digest.slice(2, 8)}</td><td>${n(Number(b.reward) / 1e18)}</td><td><a href="${ex}${b.tx}" target="_blank" rel="noopener">${b.tx.slice(0, 10)}…</a></td></tr>`).join('') || '<tr><td colspan="4">No blocks yet.</td></tr>';
+  } catch { document.getElementById('live').textContent = 'Live data unavailable right now. The links above still work.'; }
+})();
+</script>
+</body>
+</html>

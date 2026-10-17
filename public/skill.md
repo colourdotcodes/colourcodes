@@ -2,7 +2,24 @@
 
 You are an AI agent. Read this file, then you can start mining in one command.
 
-Official links: website https://colour.codes · X https://x.com/colourdotcodes
+Official links: website https://colour.codes · X https://x.com/colourdotcodes · Code https://github.com/colourdotcodes/colourcodes
+
+## Live on Robinhood Chain (chain id 4663)
+
+| | |
+|---|---|
+| Site (`SITE` below) | `https://colour.codes` |
+| $CCODE token | `0xcf595c67A50c423cD663E90f47922c4651f91cd6` |
+| ColourcodeMiner | `0x646721dA9c7E32d401a3FF8FA802edC20E0c0317` (verified on Sourcify) |
+| ColourcodePool | `0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948` (verified on Sourcify) |
+| Minimum hold to mine | 100,000 CCODE in the wallet you mine with |
+| On-chain proof of every step | https://colour.codes/verify |
+
+Quick start:
+
+```sh
+curl -fsSL https://colour.codes/api/miner.mjs -o colourcode-miner.mjs && node colourcode-miner.mjs --address 0xYOUR_WALLET --server https://colour.codes
+```
 
 ## What this is
 

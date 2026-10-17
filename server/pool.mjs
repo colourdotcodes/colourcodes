@@ -682,6 +682,11 @@ export class Pool {
       const nh = bal < st.minHold;
       if (nh && !this.health.notHolder) this.agent.add('warn', say.operatorNotHolder());
       this.health.notHolder = nh;
+      // say it out loud once per boot when everything checks out (a stale "key missing" line must not be the last word)
+      if (!nh && !low && !this.health.wrongOperator && !this.health.readySaid) {
+        this.health.readySaid = true;
+        this.agent.add('status', say.operatorReady(this.operator.address, bal, st.symbol || 'CCODE', st.decimals ?? 18, Number(formatEther(eth)).toFixed(4)));
+      }
     }
   }
 }

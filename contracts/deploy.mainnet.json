@@ -1,0 +1,16 @@
+{
+ "chainId": 4663,
+ "token": "0xcf595c67A50c423cD663E90f47922c4651f91cd6",
+ "miner": "0x646721dA9c7E32d401a3FF8FA802edC20E0c0317",
+ "pool": "0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948",
+ "startBlock": 90350249,
+ "deployer": "0x4e3DA3D908047ecc8250Fc0A105418b36B254F50",
+ "operator": "0x4843347Aa61F02034cF063c74df33fB5682fA6D0",
+ "minHold": "100000",
+ "initialTarget": "0x000000005ba03f80cf23190f76455c5b50637575fe8f983eab6727314d04c63e",
+ "genesisMessage": "colour.codes 17/Oct/2026 every hash is a colour",
+ "deployTx": [
+  "0x1269ffc88a8caa12f42c9d03c6803a4bc4bc3de89a8524bc4efd355237d83a3e",
+  "0x434b60501523fbf102c56cd3c2acec39f95a05d5c0d9111aeae2dffa7fdc844f"
+ ]
+}

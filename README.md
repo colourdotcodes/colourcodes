@@ -3,7 +3,23 @@
 **Every hash is a colour.** $CCODE is a token on Robinhood Chain (chain id 4663) that is mined with real
 proof of work. The contract checks every block itself; nobody can mint, pause or withdraw by hand.
 
-Website: https://colour.codes · X: https://x.com/colourdotcodes
+Website: https://colour.codes · X: https://x.com/colourdotcodes · Code: https://github.com/colourdotcodes/colourcodes
+
+## Live on Robinhood Chain (chain id 4663)
+
+| Contract | Address |
+| --- | --- |
+| $CCODE token (Pons) | [`0xcf595c67A50c423cD663E90f47922c4651f91cd6`](https://robinhoodchain.blockscout.com/token/0xcf595c67A50c423cD663E90f47922c4651f91cd6) |
+| ColourcodeMiner | [`0x646721dA9c7E32d401a3FF8FA802edC20E0c0317`](https://repo.sourcify.dev/4663/0x646721dA9c7E32d401a3FF8FA802edC20E0c0317) (verified on Sourcify) |
+| ColourcodePool | [`0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948`](https://repo.sourcify.dev/4663/0x3009B1B2560F32CeeD40F67b4b8BE47aff3BA948) (verified on Sourcify) |
+
+Reserve: 2,928,672 CCODE transferred into the miner, `start()` called in tx
+[`0x40b1f926…2404`](https://robinhoodchain.blockscout.com/tx/0x40b1f9263c395b2beaec759bd09d5c9351ba25f170b008c83800f5b78ac22404).
+Minimum hold to mine: 100,000 CCODE. Live state: https://colour.codes/api/chain
+
+First mainnet cycle: block #1 [`0x9190fda8…b17d`](https://robinhoodchain.blockscout.com/tx/0x9190fda882801188ab0ee64ffbc0d63b30acf7d625194751175e4b8a0cedb17d), first daily payout (epoch 1, 1,355.87 CCODE to 4 miners) [`0xe2b1bc7b…fa7c`](https://robinhoodchain.blockscout.com/tx/0xe2b1bc7bf634cc7ae04cb83c202b647a4daa182d33b6dc1f56532de2dc1bfa7c), first claim [`0xba7b6555…6b3c`](https://robinhoodchain.blockscout.com/tx/0xba7b65554f92c4c74b8c90c387ee407895c9866c0d4d610706967c8383d56b3c). Every proof in one place: https://colour.codes/verify
+
+`contracts/deploy.mainnet.json` holds these addresses. `contracts/deploy.local.json` is only the local test chain (31337).
 
 ## How it works
 

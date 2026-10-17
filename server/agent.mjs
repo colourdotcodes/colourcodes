@@ -84,6 +84,7 @@ export const say = {
   capped: (n) => `${n} wallet${n === 1 ? '' : 's'} hit the per-wallet cap. the rest carries to the next epoch.`,
 
   operatorMissing: () => 'operator key missing. shares are counted but cannot become blocks.',
+  operatorReady: (addr, bal, sym, dec, eth) => `operator ${short(addr)} ready: holds ${fmtTokens(bal, dec)} ${sym} and ${eth} ETH. winning shares become blocks.`,
   operatorLowGas: (eth) => `operator gas is low: ${eth} ETH left.`,
   operatorNotHolder: () => 'operator wallet holds less than minHold. it cannot submit blocks.',
   operatorWrong: () => 'operator key does not match the pool contract. payouts are on hold.',

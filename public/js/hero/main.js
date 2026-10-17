@@ -261,6 +261,8 @@ addEventListener('keydown', (e) => {
 });
 
 $('enter').addEventListener('click', () => enter());
+// straight into the Miner: the computer boots and colour.codes Miner opens, ready to connect a wallet
+$('start-mining').addEventListener('click', () => enter('miner'));
 $('open-paper').addEventListener('click', () => enter('whitepaper'));
 $('back').addEventListener('click', () => leave());
 
@@ -305,17 +307,28 @@ function say(msg) {
 }
 const caVal = $('ca-value');
 if (CFG.ca) caVal.textContent = CFG.ca;
-else { caVal.textContent = CFG.caText || 'DROPS AT LAUNCH'; caVal.classList.add('is-empty'); }
-$('ca-copy').addEventListener('click', async () => {
-  if (!CFG.ca) return say('The contract address goes live at launch.');
-  try { await navigator.clipboard.writeText(CFG.ca); say('Contract address copied.'); }
-  catch { say(CFG.ca); }
+else { caVal.textContent = CFG.caText || 'NOT MIXED YET'; caVal.classList.add('is-empty'); }
+// copies exactly what the chip shows (the placeholder too, before launch)
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch {
+    const ta = Object.assign(document.createElement('textarea'), { value: text });
+    ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+    document.body.append(ta); ta.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch { /* blocked */ }
+    ta.remove(); return ok;
+  }
+}
+for (const id of ['ca-copy', 'ca-value']) $(id).addEventListener('click', async () => {
+  const text = CFG.ca || `CA ${caVal.textContent.trim()}`;
+  say(await copyText(text) ? (CFG.ca ? 'Contract address copied.' : `Copied: ${text}`) : text);
 });
 function bindLink(id, url, soon) {
   const a = $(id);
   if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
   else a.addEventListener('click', (e) => { e.preventDefault(); say(soon); });
 }
+bindLink('link-gh', CFG.links?.github, 'Source code coming soon.');
 bindLink('link-x', CFG.links?.x, 'X account coming soon.');
 bindLink('link-buy', CFG.links?.pons, 'Buying opens at launch.');
 
@@ -328,7 +341,9 @@ async function stats() {
     const d = await r.json();
     if (d.status === 'live') {
       $('st-height').textContent = fmt(d.height);
-      $('st-diff').textContent = d.difficulty ? Number(d.difficulty).toExponential(2).replace('e+', 'e') : '—';
+      // same unit as the Block Explorer: 4.10G (hashes per block)
+      const si = (n) => { const u = [[1e12, 'T'], [1e9, 'G'], [1e6, 'M'], [1e3, 'k']].find(([v]) => n >= v); return u ? (n / u[0]).toFixed(2) + u[1] : String(Math.round(n)); };
+      $('st-diff').textContent = d.difficulty ? si(Number(d.difficulty)) : '—';
       const left = d.nextHalvingAt != null ? Number(d.nextHalvingAt) - Number(d.height) : null;
       $('st-halving').textContent = left != null ? fmt(left) + ' blk' : '—';
       note.textContent = 'Live from Robinhood Chain.';
